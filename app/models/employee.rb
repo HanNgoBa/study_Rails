@@ -5,6 +5,7 @@ class Employee < ApplicationRecord
                     presence: true,
                     uniqueness: true
   validates :phone_number, presence: true, uniqueness: true, numericality: true, length: { maximum: 11 }
+  has_many :payments
 
   before_save :change_level
   def change_level
@@ -15,6 +16,5 @@ class Employee < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  scope :not_free, -> { where.not(level: 'Free')}
-
+  scope :not_free, -> { where.not(level: 'Free') }
 end
