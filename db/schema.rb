@@ -12,7 +12,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_230_907_094_254) do
+ActiveRecord::Schema[7.0].define(version: 20_230_908_044_318) do
+  create_table 'animals', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
+    t.string 'name'
+    t.string 'type'
+    t.integer 'legs'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.integer 'live_in'
+  end
+
   create_table 'articles', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
     t.string 'title'
     t.text 'body'
@@ -39,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 20_230_907_094_254) do
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.string 'col'
+    t.text 'properties'
   end
 
   create_table 'payment_details', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
